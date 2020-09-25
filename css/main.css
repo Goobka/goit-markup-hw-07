@@ -44,6 +44,16 @@
   overflow: hidden;
 }
 
+.section__title {
+  margin-top: 0;
+  margin-bottom: 50px;
+  color: #212121;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 1.17;
+  text-align: center;
+}
+
 .page-body {
   padding-top: 80px;
   background-color: #ffffff;
@@ -90,6 +100,14 @@
 
 .logo__text--accent {
   color: #ffffff;
+}
+
+.navigation__link, .contacts__link {
+  font-style: normal;
+  font-size: 14px;
+  line-height: 1.14px;
+  letter-spacing: 0.02em;
+  text-decoration: none;
 }
 
 .navigation {
@@ -139,15 +157,6 @@
   height: 4px;
   background-color: #2196f3;
   border-radius: 2px;
-}
-
-.contacts__link,
-.navigation__link {
-  font-style: normal;
-  font-size: 14px;
-  line-height: 1.14px;
-  letter-spacing: 0.02em;
-  text-decoration: none;
 }
 
 .contacts__item {
@@ -245,7 +254,7 @@
   background-color: rgba(0, 0, 0, 0.2);
 }
 
-.backdrop--is-hidden {
+.is-hidden {
   opacity: 0;
   pointer-events: none;
 }
@@ -268,7 +277,7 @@
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1), -webkit-transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.backdrop--is-hidden .modal {
+.is-hidden .modal {
   -webkit-transform: translate(-50%, -50%) scale(0.9);
           transform: translate(-50%, -50%) scale(0.9);
 }
@@ -307,6 +316,16 @@
   font-weight: 700;
   line-height: 1.15;
   color: #212121;
+}
+
+.modal__send-button {
+  margin-top: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .form:first-child {
@@ -422,7 +441,7 @@
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.checkbox:checked + .checkbox__icon {
+.checkbox__input:checked + .checkbox__icon {
   background-color: #2196f3;
   background-image: url(../images/check.svg);
   background-size: contain;
@@ -430,14 +449,72 @@
   border-color: #2196f3;
 }
 
-.modal__send-button {
-  margin-top: 30px;
+.signup__form {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  margin-top: 20px;
+}
+
+.signup__input {
+  margin: 0;
+  margin-right: 12px;
+  padding: 15px 16px;
+  width: 358px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+  -webkit-filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
+          filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
+  background-color: #2f303a;
+  color: rgba(255, 255, 255, 0.6);
+  outline: transparent;
+  -webkit-transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.signup__input:focus, .signup__input:required:valid {
+  border: 1px solid #2196f3;
+}
+
+.signup__input::-webkit-input-placeholder {
+  font-size: 16px;
+  line-height: 1.25;
+}
+
+.signup__input:-ms-input-placeholder {
+  font-size: 16px;
+  line-height: 1.25;
+}
+
+.signup__input::-ms-input-placeholder {
+  font-size: 16px;
+  line-height: 1.25;
+}
+
+.signup__input::placeholder {
+  font-size: 16px;
+  line-height: 1.25;
+}
+
+.signup__button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-left: 28px;
+  padding-right: 29px;
+}
+
+.signup__icon {
+  margin-left: 10px;
+}
+
+.features__subtitle, .activity__subtitle {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.14;
 }
 
 .features__list {
@@ -487,13 +564,6 @@
   margin-top: 30px;
   margin-bottom: 0;
   color: #212121;
-}
-
-.features__subtitle,
-.activity__subtitle {
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 1.14;
 }
 
 .features__text {
@@ -554,18 +624,6 @@
   color: #ffffff;
 }
 
-.activity__title,
-.team__title,
-.clients__title {
-  margin-top: 0;
-  margin-bottom: 0;
-  color: #212121;
-  font-weight: 700;
-  font-size: 36px;
-  line-height: 1.17;
-  text-align: center;
-}
-
 .team {
   background-color: #f5f4fa;
   font-size: 16px;
@@ -602,15 +660,18 @@
 }
 
 .employee__title {
+  margin-top: 0;
+  margin-bottom: 16px;
   font-weight: 500;
   text-align: center;
   font-size: 16px;
   line-height: 1.19;
+  color: #212121;
 }
 
 .employee__text {
-  margin-top: 10px;
-  margin-bottom: 0;
+  margin-top: 0;
+  margin-bottom: 16px;
   text-align: center;
   font-weight: 400;
   color: #757575;
@@ -623,7 +684,6 @@
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  margin-top: 16px;
 }
 
 .socials__link {
@@ -815,67 +875,5 @@
 
 .join__icon {
   fill: currentColor;
-}
-
-.signup__form {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  margin-top: 20px;
-}
-
-.signup__input {
-  margin: 0;
-  margin-right: 12px;
-  padding: 15px 16px;
-  width: 358px;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  border-radius: 4px;
-  -webkit-filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
-          filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
-  background-color: #2f303a;
-  color: rgba(255, 255, 255, 0.6);
-  outline: transparent;
-  -webkit-transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.signup__input:focus, .signup__input:required:valid {
-  border: 1px solid #2196f3;
-}
-
-.signup__input::-webkit-input-placeholder {
-  font-size: 16px;
-  line-height: 1.25;
-}
-
-.signup__input:-ms-input-placeholder {
-  font-size: 16px;
-  line-height: 1.25;
-}
-
-.signup__input::-ms-input-placeholder {
-  font-size: 16px;
-  line-height: 1.25;
-}
-
-.signup__input::placeholder {
-  font-size: 16px;
-  line-height: 1.25;
-}
-
-.signup__button {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  padding-left: 28px;
-  padding-right: 29px;
-}
-
-.signup__icon {
-  margin-left: 10px;
 }
 /*# sourceMappingURL=main.css.map */
